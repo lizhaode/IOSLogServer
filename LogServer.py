@@ -15,28 +15,6 @@ class IOSLogServer(Protocol):
 	def dataReceived(self, data):
 		logdata = data.decode()
 		self.writelog(self.transport.client[0], logdata)
-		# print(logdata)
-		# if logdata[24:30] == 'RENDER':
-		#     filename = self.transport.client[0] + '_RENDER'
-		#     self.writelog(filename,logdata)
-		# elif logdata[24:29] == 'AUDIO':
-		#     filename = self.transport.client[0] + '_AUDIO'
-		#     self.writelog(filename,logdata)
-		# elif logdata[24:32] == 'ESTORAGE':
-		#     filename = self.transport.client[0] + '_ESTORAGE'
-		#     self.writelog(filename,logdata)
-		# elif logdata[24:30] == 'CAMERA':
-		#     filename = self.transport.client[0] + '_CAMERA'
-		#     self.writelog(filename,logdata)
-		# elif logdata[24:27] == 'GPS':
-		#     filename = self.transport.client[0] + '_GPS'
-		#     self.writelog(filename,logdata)
-		# elif logdata[24:30] == 'NOTIFY':
-		#     filename = self.transport.client[0] + '_NOTIFY'
-		#     self.writelog(filename,logdata)
-		# elif logdata[24:30] == 'SYSTEM':
-		#     filename = self.transport.client[0] + '_SYSTEM'
-		#     self.writelog(filename,logdata)
 
 	def writelog(self, filename, data):
 		realfilename = 'AndroidShell_' + filename + '_' + time.strftime('%Y%m%d', time.localtime()) + '.log'
