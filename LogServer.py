@@ -22,8 +22,8 @@ class IOSLogServer(Protocol):
 		f.write(data)
 		f.close()
 
-
-factory = Factory()
-factory.protocol = IOSLogServer
-reactor.listenTCP(1234, factory)
-reactor.run()
+if __name__ == '__main__':
+	factory = Factory()
+	factory.protocol = IOSLogServer
+	reactor.listenTCP(1234, factory)
+	reactor.run()
